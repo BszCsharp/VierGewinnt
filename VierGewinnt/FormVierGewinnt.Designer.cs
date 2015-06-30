@@ -80,7 +80,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBoxgelb = new System.Windows.Forms.PictureBox();
+            this.labelGelb = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).BeginInit();
@@ -124,11 +124,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxgelb)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AllowDrop = true;
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Black;
             this.tableLayoutPanel1.ColumnCount = 7;
@@ -651,10 +651,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "1";
             this.label1.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
+            this.label1.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(89, 522);
+            this.button1.Location = new System.Drawing.Point(63, 514);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 35);
             this.button1.TabIndex = 1;
@@ -662,26 +663,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // pictureBoxgelb
+            // labelGelb
             // 
-            this.pictureBoxgelb.BackColor = System.Drawing.Color.White;
-            this.pictureBoxgelb.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxgelb.Image")));
-            this.pictureBoxgelb.Location = new System.Drawing.Point(215, 503);
-            this.pictureBoxgelb.Name = "pictureBoxgelb";
-            this.pictureBoxgelb.Size = new System.Drawing.Size(54, 54);
-            this.pictureBoxgelb.TabIndex = 8;
-            this.pictureBoxgelb.TabStop = false;
-            this.pictureBoxgelb.Tag = "gelb";
-            this.pictureBoxgelb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxgelb_MouseDown);
+            this.labelGelb.BackColor = System.Drawing.Color.Yellow;
+            this.labelGelb.Location = new System.Drawing.Point(209, 493);
+            this.labelGelb.Name = "labelGelb";
+            this.labelGelb.Size = new System.Drawing.Size(80, 56);
+            this.labelGelb.TabIndex = 2;
+            this.labelGelb.Text = "Gelb";
+            this.labelGelb.DoubleClick += new System.EventHandler(this.labelGelb_DoubleClick);
+            this.labelGelb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelGelb_MouseDown);
             // 
             // FormVierGewinnt
             // 
-            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(596, 692);
-            this.Controls.Add(this.pictureBoxgelb);
+            this.Controls.Add(this.labelGelb);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -730,7 +729,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxgelb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,7 +787,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBoxgelb;
+        private System.Windows.Forms.Label labelGelb;
     }
 }
 

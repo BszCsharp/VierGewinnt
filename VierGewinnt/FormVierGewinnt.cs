@@ -38,6 +38,7 @@ namespace VierGewinnt
                     r = z % 6 + 1;
                     c = s % 7;
                     picArray[r, c] = p;
+                    p.Tag = 0;
                     
 
                }
@@ -56,11 +57,42 @@ namespace VierGewinnt
 
         private void pictureBoxgelb_MouseDown(object sender, MouseEventArgs e)
         {
-            pictureBoxgelb.DoDragDrop("gelb",DragDropEffects.Move );
+            //pictureBoxgelb.DoDragDrop("gelb",DragDropEffects.Move );
         }
 
         private void label1_DragEnter(object sender, DragEventArgs e)
         {
+        
+        }
+
+        private void labelGelb_MouseDown(object sender, MouseEventArgs e)
+        {
+            labelGelb.DoDragDrop(labelGelb.Text, DragDropEffects.Move | DragDropEffects.Copy);
+        }
+
+        private void labelGelb_DoubleClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_DoubleClick(object sender, EventArgs e)
+        {
+            Label l = (Label)sender;
+            int s = Convert.ToInt32(l.Text) - 1;
+            int r;
+            for(r = 1; r < 7; r++)
+            {
+                if( (Int32) picArray[r,s].Tag != 0)
+                {
+                    r--;
+                    if(r>=1)
+                    {
+
+                    }
+                    break;
+                }
+            }
+            
 
         }
     }
