@@ -15,6 +15,7 @@ namespace VierGewinnt
         public FormVierGewinnt()
         {
             InitializeComponent();
+
         }
     }
 }
