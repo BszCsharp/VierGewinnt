@@ -580,6 +580,16 @@
         RU5ErkJggg==
 </value>
   </data>
+  <data name="pictureBoxgelb.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAANlJREFUWEfNlMsNAyEMBekg/beZBpJDkBAjAqwxfh7N5eHfnra8Dvi8y8TaZKIY
+        wPmld8Exg/7ggFk3sNfFU7DOUSPYcslnYPiqu2AswC0wE+AaDIQ5A63B/gV98Q5Ah0SCstAO1IR2oCa0
+        gYLcCl7lVvAqN+M3/WROInMSmZPInETmJDInkTmJzElkTmLGH30Fr3IreJXbQEFrAwWhHagJJShLHIOm
+        eMegKdgZaA1zDQZiXIOBAHfB2FWfgeFLGsEWX4/ALhd9wNJDncF2g3fBsR1DwW1op5Qvn8blA42R2PQA
+        AAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAQAAAABADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAABAA
