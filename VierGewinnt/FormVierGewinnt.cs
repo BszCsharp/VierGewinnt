@@ -13,6 +13,9 @@ namespace VierGewinnt
     public partial class FormVierGewinnt : Form
     {
         private PictureBox[,] picArray = new PictureBox[7,7];
+        Image imgw = Image.FromFile(@"Images\weiss.png"); // weiss
+        Image imgr = Image.FromFile(@"Images\rot.png");   // rot
+        Image imgg = Image.FromFile(@"Images\gelb.png"); // gelb 
         public FormVierGewinnt()
         {
             InitializeComponent();
@@ -27,12 +30,14 @@ namespace VierGewinnt
             int z = 1;
             int s = 0;
             int r, c;
+            
            foreach(Control co in tableLayoutPanel1.Controls)
            {
                if(co.Name.Contains("pic"))
                {
                     PictureBox p = (PictureBox)co;
-                    p.BackColor = Color.Blue;
+                    //p.BackColor = Color.Blue;
+                    p.Image = imgw;
                     z++;
                     s++;
                     r = z % 6 + 1;
@@ -62,12 +67,20 @@ namespace VierGewinnt
 
         private void label1_DragEnter(object sender, DragEventArgs e)
         {
-        
+            int r;
+            for(r = 0;  r< 6 && picArray[r+1,0].Image == imgw; r++)
+            {
+                ;
+            }
+            if(r != 0)
+            {
+                picArray[r, 1].Image = imgg;
+            }
         }
 
         private void labelGelb_MouseDown(object sender, MouseEventArgs e)
         {
-            labelGelb.DoDragDrop(labelGelb.Text, DragDropEffects.Move | DragDropEffects.Copy);
+            labelGelb.DoDragDrop(labelGelb, DragDropEffects.Copy | DragDropEffects.Move);
         }
 
         private void labelGelb_DoubleClick(object sender, EventArgs e)
