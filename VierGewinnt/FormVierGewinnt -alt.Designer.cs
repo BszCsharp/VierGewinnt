@@ -1,6 +1,6 @@
 ﻿namespace VierGewinnt
 {
-    partial class FormVierGewinnt
+    partial class FormVierGewinnt2
     {
         /// <summary>
         /// Erforderliche Designervariable.

@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace VierGewinnt
 {
-    public partial class FormVierGewinnt : Form
+    public partial class FormVierGewinnt2 : Form
     {
         private PictureBox[,] picArray = new PictureBox[7,7];
         Image imgw = Image.FromFile(@"Images\weiss.png"); // weiss
         Image imgr = Image.FromFile(@"Images\rot.png");   // rot
         Image imgg = Image.FromFile(@"Images\gelb.png"); // gelb 
-        public FormVierGewinnt()
+        public FormVierGewinnt2()
         {
             InitializeComponent();
             InitializArray();
