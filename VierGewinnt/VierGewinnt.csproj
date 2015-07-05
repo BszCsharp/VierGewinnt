@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormVierGewinnt -alt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVierGewinnt -alt.Designer.cs">
+      <DependentUpon>FormVierGewinnt -alt.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormVierGewinnt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormVierGewinnt -alt.resx">
+      <DependentUpon>FormVierGewinnt -alt.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormVierGewinnt.resx">
       <DependentUpon>FormVierGewinnt.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,7 +137,10 @@
   <ItemGroup>
     <Content Include="bin\Debug\Images\gelb.png" />
     <Content Include="bin\Debug\Images\gelb2.png" />
-    <Content Include="bin\Debug\Images\rot.png" />
+    <Content Include="bin\Debug\Images\weiss.png" />
+    <None Include="Resources\ImWeiss.bmp" />
+    <None Include="Resources\ImGelb.bmp" />
+    <None Include="Resources\ImRot.bmp" />
     <None Include="Resources\Image1.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
