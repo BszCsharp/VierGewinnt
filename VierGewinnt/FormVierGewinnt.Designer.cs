@@ -666,7 +666,7 @@
             // labelGelb
             // 
             this.labelGelb.BackColor = System.Drawing.Color.Yellow;
-            this.labelGelb.Location = new System.Drawing.Point(209, 493);
+            this.labelGelb.Location = new System.Drawing.Point(186, 493);
             this.labelGelb.Name = "labelGelb";
             this.labelGelb.Size = new System.Drawing.Size(80, 56);
             this.labelGelb.TabIndex = 2;

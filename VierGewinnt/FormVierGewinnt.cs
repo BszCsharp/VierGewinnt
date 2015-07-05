@@ -87,7 +87,7 @@ namespace VierGewinnt
                     r--;
                     if(r>=1)
                     {
-
+                        //picArray[r,s].Image = 
                     }
                     break;
                 }
