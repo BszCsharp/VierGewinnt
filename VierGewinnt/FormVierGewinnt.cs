@@ -108,7 +108,18 @@ namespace VierGewinnt
 
         private void check()
         {
-            throw new NotImplementedException();
+           if(checkH)  // Horizontal
+           {
+
+           }
+            if(checkV) // Vertikal
+            {
+
+            }
+            if(checkD) // Diagonal
+            {
+
+            }
         }
 
         private void labelGelb_MouseDown(object sender, MouseEventArgs e)
@@ -151,5 +162,11 @@ namespace VierGewinnt
         {
             labelRot.DoDragDrop("ROT", DragDropEffects.Move);
         }
+
+        public bool checkH { get; set; }
+
+        public bool checkV { get; set; }
+
+        public bool checkD { get; set; }
     }
 }
