@@ -69,34 +69,10 @@ namespace VierGewinnt
 
         private void label1_DragEnter(object sender, DragEventArgs e)
         {
-            int r;
-            Label l = sender as Label;
-            int s = Convert.ToInt32(l.Text);
-            //if ( MessageBox.Show("Spalte " + s.ToString(),"Achtung",MessageBoxButtons.OK) != DialogResult.OK)
-            //{
-            //    return;
-            //}
-            s--;
-            for(r = 0;  r< 6 && picArray[r+1,s].Image == imgw; r++)
+            if (e.Data.GetDataPresent(DataFormats.Text))
             {
-                ;
+                e.Effect = DragDropEffects.Move | DragDropEffects.Copy;
             }
-            if(r != 0)
-            {
-                if (labelGelb.Visible) picArray[r, s].Image = imgg;
-                else picArray[r, s].Image = imgr;
-            }
-            if (labelGelb.Visible)
-            {
-                labelGelb.Visible = false;
-                labelRot.Visible = true;
-            }
-            else 
-            {
-                labelGelb.Visible = true;
-                labelRot.Visible = false;
-            }
-            check();
         }
 
         private void check()
@@ -117,32 +93,13 @@ namespace VierGewinnt
 
         private void labelGelb_MouseDown(object sender, MouseEventArgs e)
         {
+
+            //String txt = ((Label)sender).Tag as String;
             labelGelb.DoDragDrop("GELB", DragDropEffects.Move);
         }
 
         private void labelGelb_DoubleClick(object sender, EventArgs e)
         {
-            
-        }
-
-        private void label1_DoubleClick(object sender, EventArgs e)
-        {
-            Label l = (Label)sender;
-            int s = Convert.ToInt32(l.Text) - 1;
-            int r;
-            for(r = 1; r < 7; r++)
-            {
-                if( (Int32) picArray[r,s].Tag != 0)
-                {
-                    r--;
-                    if(r>=1)
-                    {
-                        //picArray[r,s].Image = 
-                    }
-                    break;
-                }
-            }
-            
 
         }
 
@@ -161,5 +118,62 @@ namespace VierGewinnt
         public bool checkV { get; set; }
 
         public bool checkD { get; set; }
+
+        private void tableLayoutPanel1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.Move | DragDropEffects.Copy;
+            }
+        }
+
+        private void FormVierGewinnt_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.Move | DragDropEffects.Copy;
+            }
+        }
+
+        private void tableLayoutPanel1_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                e.Effect = DragDropEffects.Move | DragDropEffects.Copy;
+            }
+        }
+
+        private void label1_DragDrop(object sender, DragEventArgs e)
+        {
+  
+            int r;
+            Label l = sender as Label;
+            int s = Convert.ToInt32(l.Text);
+ 
+            s--;
+            for (r = 0; r < 6 && picArray[r + 1, s].Image == imgw; r++)
+            {
+                ;
+            }
+            if (r != 0)
+            {
+                if (labelGelb.Visible) picArray[r, s].Image = imgg;
+                else picArray[r, s].Image = imgr;
+                check();
+                if (labelGelb.Visible)
+                {
+                    labelGelb.Visible = false;
+                    labelRot.Visible = true;
+                }
+                else
+                {
+                    labelGelb.Visible = true;
+                    labelRot.Visible = false;
+                }
+            }
+           
+            
+
+        }
     }
 }

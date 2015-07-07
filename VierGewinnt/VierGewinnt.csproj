@@ -136,6 +136,7 @@
     <Content Include="bin\Debug\Images\gelb.png" />
     <Content Include="bin\Debug\Images\gelb2.png" />
     <Content Include="bin\Debug\Images\rot.png" />
+    <Content Include="bin\Debug\Images\weiss.png" />
     <Content Include="bin\Debug\VierGewinnt.exe" />
     <Content Include="bin\Debug\VierGewinnt.pdb" />
     <Content Include="Images\gelb.png" />
