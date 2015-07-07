@@ -59,15 +59,8 @@ namespace VierGewinnt
                 }
            
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
+   
 
-        private void oleDbDataAdapter1_RowUpdated(object sender, System.Data.OleDb.OleDbRowUpdatedEventArgs e)
-        {
-
-        }
 
         private void pictureBoxgelb_MouseDown(object sender, MouseEventArgs e)
         {
