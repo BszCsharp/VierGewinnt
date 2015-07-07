@@ -92,6 +92,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\VierGewinnt.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,8 +133,14 @@
     <None Include="Resources\ImgRot1.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\Images\gelb.png" />
+    <Content Include="bin\Debug\Images\gelb2.png" />
+    <Content Include="bin\Debug\Images\rot.png" />
+    <Content Include="bin\Debug\VierGewinnt.exe" />
+    <Content Include="bin\Debug\VierGewinnt.pdb" />
     <Content Include="Images\gelb.png" />
     <Content Include="Images\rot.png" />
+    <Content Include="Images\weiss.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
