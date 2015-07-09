@@ -92,33 +92,49 @@ namespace VierGewinnt
 
         private void check()
         {
-           if(checkH)  // Horizontal
+           if(checkH())  // Horizontal
            {
-               int r, s;
-               Boolean gewonnen = false;
-               // gelb =1, rot = 2;
-               int modus = 0;
-               int anzahlGelb = 0, anzahlRot = 0;
-
-               for(r=6; r >=1 && gewonnen == false;r--)
-               {
-                   for(s=0; s<=6;s++)
-                   {
-                       if(picArray[r,s].Image == imgg )
-                       {
-
-                       }
-                   }
-               }
+      
            }
-            if(checkV) // Vertikal
+            if(checkV()) // Vertikal
             {
 
             }
-            if(checkD) // Diagonal
+            if(checkD()) // Diagonal
             {
 
             }
+        }
+
+        private bool checkD()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool checkV()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool checkH()
+        {
+            int r, s;
+            Boolean gewonnen = false;
+            // gelb =1, rot = 2;
+            int modus = 0;
+            int anzahlGelb = 0, anzahlRot = 0;
+
+            for (r = 6; r >= 1 && gewonnen == false; r--)
+            {
+                for (s = 0; s <= 6; s++)
+                {
+                    if (picArray[r, s].Image == imgg)
+                    {
+
+                    }
+                }
+            }
+            return gewonnen;
         }
 
         private void labelGelb_MouseDown(object sender, MouseEventArgs e)
