@@ -27,27 +27,11 @@ namespace VierGewinnt
         {
             //tableLayoutPanel1.SetColumn(pictureBox1, 0);
             //tableLayoutPanel1.SetRow(pictureBox1, 1);
-            int z = 1;
-            int s = 0;
-            int r, c;
             
-           //foreach(Control co in tableLayoutPanel1.Controls)
-           //{
-           //    if(co.Name.Contains("pic"))
-           //    {
-           //         PictureBox p = (PictureBox)co;
-           //         //p.BackColor = Color.Blue;
-           //         p.Image = imgw;
-           //         z++;
-           //         s++;
-           //         r = z % 6 + 1;
-           //         c = s % 7;
-           //         picArray[r, c] = p;
-           //         p.Tag = 0;
-                    
-
-           //    }
-           //}
+            int s = 0;
+            int r;
+            
+   
             for (r = 1; r < 7;r++ )
                 for (s = 0; s < 7; s++)
                 {
@@ -110,7 +94,22 @@ namespace VierGewinnt
         {
            if(checkH)  // Horizontal
            {
+               int r, s;
+               Boolean gewonnen = false;
+               // gelb =1, rot = 2;
+               int modus = 0;
+               int anzahlGelb = 0, anzahlRot = 0;
 
+               for(r=6; r >=1 && gewonnen == false;r--)
+               {
+                   for(s=0; s<=6;s++)
+                   {
+                       if(picArray[r,s].Image == imgg )
+                       {
+
+                       }
+                   }
+               }
            }
             if(checkV) // Vertikal
             {
