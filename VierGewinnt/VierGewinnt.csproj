@@ -137,6 +137,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\Images\gelb.png" />
     <Content Include="bin\Debug\Images\gelb2.png" />
+    <Content Include="bin\Debug\Images\rot.png" />
     <Content Include="bin\Debug\Images\weiss.png" />
     <None Include="Resources\ImWeiss.bmp" />
     <None Include="Resources\ImGelb.bmp" />
