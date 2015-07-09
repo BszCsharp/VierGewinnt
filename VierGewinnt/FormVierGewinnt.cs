@@ -60,34 +60,9 @@ namespace VierGewinnt
 
         private void label1_DragEnter(object sender, DragEventArgs e)
         {
-            int r;
-            Label l = sender as Label;
-            int s = Convert.ToInt32(l.Text);
-            //if ( MessageBox.Show("Spalte " + s.ToString(),"Achtung",MessageBoxButtons.OK) != DialogResult.OK)
-            //{
-            //    return;
-            //}
-            s--;
-            for(r = 0;  r< 6 && picArray[r+1,s].Image == imgw; r++)
-            {
-                ;
-            }
-            if(r != 0)
-            {
-                if (labelGelb.Visible) picArray[r, s].Image = imgg;
-                else picArray[r, s].Image = imgr;
-            }
-            if (labelGelb.Visible)
-            {
-                labelGelb.Visible = false;
-                labelRot.Visible = true;
-            }
-            else 
-            {
-                labelGelb.Visible = true;
-                labelRot.Visible = false;
-            }
-            check();
+            Label l = (Label)sender;
+            l.BackColor = Color.LightYellow;
+            e.Effect = DragDropEffects.All;
         }
 
         private void check()
@@ -178,10 +153,47 @@ namespace VierGewinnt
             labelRot.DoDragDrop("ROT", DragDropEffects.Move);
         }
 
-        public bool checkH { get; set; }
+        private void label1_DragDrop(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.All;
+            int r;
+            Label l = sender as Label;
+            l.BackColor = Color.Olive;
+            int s = Convert.ToInt32(l.Text);
+            //if ( MessageBox.Show("Spalte " + s.ToString(),"Achtung",MessageBoxButtons.OK) != DialogResult.OK)
+            //{
+            //    return;
+            //}
+            s--;
+            for (r = 0; r < 6 && picArray[r + 1, s].Image == imgw; r++)
+            {
+                ;
+            }
+            if (r != 0)
+            {
+                if (labelGelb.Visible) picArray[r, s].Image = imgg;
+                else picArray[r, s].Image = imgr;
+            }
+            if (labelGelb.Visible)
+            {
+                labelGelb.Visible = false;
+                labelRot.Visible = true;
+            }
+            else
+            {
+                labelGelb.Visible = true;
+                labelRot.Visible = false;
+            }
+            
+            check();
+        }
 
-        public bool checkV { get; set; }
+        private void label1_DragLeave(object sender, EventArgs e)
+        {
+            Label l = (Label)sender;
+            l.BackColor = Color.Olive;
+        }
 
-        public bool checkD { get; set; }
+ 
     }
 }

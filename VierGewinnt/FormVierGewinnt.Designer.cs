@@ -85,7 +85,9 @@
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "2";
+            this.label2.DragDrop += new System.Windows.Forms.DragEventHandler(this.label1_DragDrop);
             this.label2.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
+            this.label2.DragLeave += new System.EventHandler(this.label1_DragLeave);
             // 
             // label3
             // 
@@ -97,7 +99,9 @@
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "3";
+            this.label3.DragDrop += new System.Windows.Forms.DragEventHandler(this.label1_DragDrop);
             this.label3.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
+            this.label3.DragLeave += new System.EventHandler(this.label1_DragLeave);
             // 
             // label4
             // 
@@ -109,7 +113,9 @@
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "4";
+            this.label4.DragDrop += new System.Windows.Forms.DragEventHandler(this.label1_DragDrop);
             this.label4.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
+            this.label4.DragLeave += new System.EventHandler(this.label1_DragLeave);
             // 
             // label5
             // 
@@ -121,7 +127,9 @@
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "5";
+            this.label5.DragDrop += new System.Windows.Forms.DragEventHandler(this.label1_DragDrop);
             this.label5.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
+            this.label5.DragLeave += new System.EventHandler(this.label1_DragLeave);
             // 
             // label6
             // 
@@ -133,7 +141,9 @@
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "6";
+            this.label6.DragDrop += new System.Windows.Forms.DragEventHandler(this.label1_DragDrop);
             this.label6.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
+            this.label6.DragLeave += new System.EventHandler(this.label1_DragLeave);
             // 
             // label7
             // 
@@ -146,7 +156,9 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "7";
             this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label7.DragDrop += new System.Windows.Forms.DragEventHandler(this.label1_DragDrop);
             this.label7.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
+            this.label7.DragLeave += new System.EventHandler(this.label1_DragLeave);
             // 
             // label1
             // 
@@ -158,8 +170,9 @@
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "1";
+            this.label1.DragDrop += new System.Windows.Forms.DragEventHandler(this.label1_DragDrop);
             this.label1.DragEnter += new System.Windows.Forms.DragEventHandler(this.label1_DragEnter);
-            this.label1.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
+            this.label1.DragLeave += new System.EventHandler(this.label1_DragLeave);
             // 
             // labelGelb
             // 
