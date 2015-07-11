@@ -69,7 +69,7 @@ namespace VierGewinnt
         {
            if(checkH())  // Horizontal
            {
-      
+               label8.Text = "Gewonnen";
            }
             if(checkV()) // Vertikal
             {
@@ -95,19 +95,49 @@ namespace VierGewinnt
         {
             int r, s;
             Boolean gewonnen = false;
-            // gelb =1, rot = 2;
-            int modus = 0;
-            int anzahlGelb = 0, anzahlRot = 0;
+            // modus  gelb =1, rot = 2;
+            modusEnum modus = 0;
+            int anzahl = 0;
 
             for (r = 6; r >= 1 && gewonnen == false; r--)
             {
                 for (s = 0; s <= 6; s++)
                 {
-                    if (picArray[r, s].Image == imgg)
+                    if (picArray[r, s].Image == imgg )
                     {
-
+                        switch (modus)
+                        {
+                            case modusEnum.weiss:
+                            case modusEnum.rot:
+                                modus = modusEnum.gelb;
+                                anzahl = 1;
+                                break;
+                            case modusEnum.gelb:
+                                anzahl++;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        switch(modus)
+                        {
+                            case modusEnum.weiss:
+                            case modusEnum.gelb:
+                                modus = modusEnum.rot;
+                               anzahl = 1;
+                               break;
+                            case modusEnum.rot:
+                               anzahl++;
+                               break;
+                        }
+                     }
+                    if (anzahl == 4)
+                    {
+                        gewonnen = true;
+                        break;
                     }
                 }
+
             }
             return gewonnen;
         }
@@ -124,21 +154,8 @@ namespace VierGewinnt
 
         private void label1_DoubleClick(object sender, EventArgs e)
         {
-            Label l = (Label)sender;
-            int s = Convert.ToInt32(l.Text) - 1;
-            int r;
-            for(r = 1; r < 7; r++)
-            {
-                if( (Int32) picArray[r,s].Tag != 0)
-                {
-                    r--;
-                    if(r>=1)
-                    {
-                        //picArray[r,s].Image = 
-                    }
-                    break;
-                }
-            }
+  
+           
             
 
         }
@@ -196,4 +213,5 @@ namespace VierGewinnt
 
  
     }
+    enum modusEnum {  weiss = 0, gelb = 1, rot = 2}
 }
