@@ -65,30 +65,139 @@ namespace VierGewinnt
             e.Effect = DragDropEffects.All;
         }
 
-        private void check()
+        private void checkGame()
         {
-           if(checkH())  // Horizontal
+            Boolean gewonnen = false;
+           if(checkH() )  // Horizontal
            {
-               label8.Text = "Gewonnen";
+               gewonnen = true;
            }
             if(checkV()) // Vertikal
             {
-
+                gewonnen = true;
             }
             if(checkD()) // Diagonal
             {
-
+                gewonnen = true;
             }
+            if(gewonnen)
+            {
+               String Farbe = "Rot";
+               if(labelGelb.Visible) Farbe = "Gelb";
+               label8.Text = Farbe + " hat gewonnen";
+               labelGelb.Visible = false;
+               labelRot.Visible = false;
+            }
+
         }
 
         private bool checkD()
         {
-            throw new NotImplementedException();
+            // teil 1 von links nach rechts
+           
+            Boolean gewonnen = false;
+            int r, s;
+            int anzahl = 0;
+            for(r=6; r >= 1 && gewonnen == false;r--)
+            {
+               
+                
+                for (int sp = 0; sp <= 4 && gewonnen == false; sp++)
+                {
+                    int z = r;
+                    modusEnum modus = modusEnum.weiss;
+                    for (s = 0; s <= 6 && z >= 1; s++, z--)
+                    {
+                       
+                        if (picArray[z, s].Image == imgg)
+                        {
+                            switch (modus)
+                            {
+                                case modusEnum.weiss:
+                                case modusEnum.rot:
+                                    modus = modusEnum.gelb;
+                                    anzahl = 1;
+                                    break;
+                                case modusEnum.gelb:
+                                    anzahl++;
+                                    break;
+                            }
+                        }
+                        else if (picArray[z, s].Image == imgr)
+                        {
+                            switch (modus)
+                            {
+                                case modusEnum.weiss:
+                                case modusEnum.gelb:
+                                    modus = modusEnum.rot;
+                                    anzahl = 1;
+                                    break;
+                                case modusEnum.rot:
+                                    anzahl++;
+                                    break;
+                            }
+                        }
+                        if (anzahl == 4)
+                        {
+                            gewonnen = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            return gewonnen;
         }
 
         private bool checkV()
         {
-            throw new NotImplementedException();
+            int r, s;
+            Boolean gewonnen = false;
+            // modus  gelb =1, rot = 2;
+            modusEnum modus = modusEnum.weiss;
+            int anzahl = 0;
+
+            for (s = 0; s <= 6 && gewonnen == false; s++)
+            {
+                modus = modusEnum.weiss;
+                for (r = 6; r >= 1; r--)
+                {
+                    if (picArray[r, s].Image == imgg)
+                    {
+                        switch (modus)
+                        {
+                            case modusEnum.weiss:
+                            case modusEnum.rot:
+                                modus = modusEnum.gelb;
+                                anzahl = 1;
+                                break;
+                            case modusEnum.gelb:
+                                anzahl++;
+                                break;
+                        }
+                    }
+                    else if (picArray[r, s].Image == imgr)
+                    {
+                        switch (modus)
+                        {
+                            case modusEnum.weiss:
+                            case modusEnum.gelb:
+                                modus = modusEnum.rot;
+                                anzahl = 1;
+                                break;
+                            case modusEnum.rot:
+                                anzahl++;
+                                break;
+                        }
+                    }
+                    if (anzahl == 4)
+                    {
+                        gewonnen = true;
+                        break;
+                    }
+                }
+
+            }
+            return gewonnen;
         }
 
         private bool checkH()
@@ -96,11 +205,12 @@ namespace VierGewinnt
             int r, s;
             Boolean gewonnen = false;
             // modus  gelb =1, rot = 2;
-            modusEnum modus = 0;
+            modusEnum modus = modusEnum.weiss;
             int anzahl = 0;
 
             for (r = 6; r >= 1 && gewonnen == false; r--)
             {
+                modus = modusEnum.weiss;
                 for (s = 0; s <= 6; s++)
                 {
                     if (picArray[r, s].Image == imgg )
@@ -117,13 +227,13 @@ namespace VierGewinnt
                                 break;
                         }
                     }
-                    else
+                    else if(picArray[r, s].Image == imgr)
                     {
                         switch(modus)
                         {
                             case modusEnum.weiss:
                             case modusEnum.gelb:
-                                modus = modusEnum.rot;
+                               modus = modusEnum.rot;
                                anzahl = 1;
                                break;
                             case modusEnum.rot:
@@ -147,24 +257,6 @@ namespace VierGewinnt
             labelGelb.DoDragDrop("GELB", DragDropEffects.Move);
         }
 
-        private void labelGelb_DoubleClick(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_DoubleClick(object sender, EventArgs e)
-        {
-  
-           
-            
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void labelRot_MouseDown(object sender, MouseEventArgs e)
         {
             labelRot.DoDragDrop("ROT", DragDropEffects.Move);
@@ -177,10 +269,6 @@ namespace VierGewinnt
             Label l = sender as Label;
             l.BackColor = Color.Olive;
             int s = Convert.ToInt32(l.Text);
-            //if ( MessageBox.Show("Spalte " + s.ToString(),"Achtung",MessageBoxButtons.OK) != DialogResult.OK)
-            //{
-            //    return;
-            //}
             s--;
             for (r = 0; r < 6 && picArray[r + 1, s].Image == imgw; r++)
             {
@@ -190,25 +278,44 @@ namespace VierGewinnt
             {
                 if (labelGelb.Visible) picArray[r, s].Image = imgg;
                 else picArray[r, s].Image = imgr;
-            }
-            if (labelGelb.Visible)
-            {
-                labelGelb.Visible = false;
-                labelRot.Visible = true;
-            }
-            else
-            {
-                labelGelb.Visible = true;
-                labelRot.Visible = false;
-            }
+                Application.DoEvents();
+                checkGame();
+                if (labelGelb.Visible)
+                {
+                    labelGelb.Visible = false;
+                    labelRot.Visible = true;
+                }
+                else
+                {
+                    labelGelb.Visible = true;
+                    labelRot.Visible = false;
+                }
+               
             
-            check();
+            }
+          
         }
+
+     
 
         private void label1_DragLeave(object sender, EventArgs e)
         {
             Label l = (Label)sender;
             l.BackColor = Color.Olive;
+        }
+
+        private void buttonNewGame_Click(object sender, EventArgs e)
+        {
+            int r, s;
+            for (r = 1; r < 7; r++)
+                for (s = 0; s < 7; s++)
+                {
+                    picArray[r, s].Image = imgw;
+                }
+            label8.Text = "";
+            labelGelb.Visible = true;
+            labelRot.Visible = false;
+
         }
 
  
