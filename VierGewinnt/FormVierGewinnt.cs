@@ -65,18 +65,18 @@ namespace VierGewinnt
             e.Effect = DragDropEffects.All;
         }
 
-        private void checkGame()
+        private void checkGame(int r,int s)
         {
             Boolean gewonnen = false;
-           if(checkH() )  // Horizontal
+           if(checkH(r) )  // Horizontal
            {
                gewonnen = true;
            }
-            if(checkV()) // Vertikal
+            if(gewonnen == false && checkV() == true) // Vertikal
             {
                 gewonnen = true;
             }
-            if(checkD()) // Diagonal
+            if(gewonnen == false && checkD(r,s) == true) // Diagonal
             {
                 gewonnen = true;
             }
@@ -91,7 +91,7 @@ namespace VierGewinnt
 
         }
 
-        private bool checkD()
+        private bool checkD(int row,int col)
         {
             // teil 1 von links nach rechts
            
@@ -200,7 +200,7 @@ namespace VierGewinnt
             return gewonnen;
         }
 
-        private bool checkH()
+        private bool checkH(int row)
         {
             int r, s;
             Boolean gewonnen = false;
@@ -279,7 +279,7 @@ namespace VierGewinnt
                 if (labelGelb.Visible) picArray[r, s].Image = imgg;
                 else picArray[r, s].Image = imgr;
                 Application.DoEvents();
-                checkGame();
+                checkGame(r,s);
                 if (labelGelb.Visible)
                 {
                     labelGelb.Visible = false;
