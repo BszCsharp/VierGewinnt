@@ -101,14 +101,45 @@ namespace VierGewinnt
             if (labelGelb.Visible) img = imgg;
             else img = imgr;
             Boolean gewonnen = false;
-            // nach unten
-            anzahl = 0;
-            for(r = row-1,s = col -1; r <= 6 && s >= 0 && gewonnen == false; r++,s--)
+            // nach links unten
+            anzahl = 1;
+            for(r = row+1,s = col -1; r <= 6 && s >= 0 && gewonnen == false; r++,s--)
             {
                 if (picArray[r, s].Image == img) anzahl++;
                 if (anzahl == 4) gewonnen = true;
             }
- 
+            // nach links oben
+            if(gewonnen == false)
+            {
+                anzahl = 1;
+                for (r = row - 1, s = col - 1; r >= 1 && s >= 0 && gewonnen == false; r--, s--)
+                {
+                    if (picArray[r, s].Image == img) anzahl++;
+                    if (anzahl == 4) gewonnen = true;
+                } 
+
+            }
+            // nach rechts unten
+            if (gewonnen == false)
+            {
+                anzahl = 1;
+                for (r = row + 1, s = col + 1; r <= 6 && s <= 6 && gewonnen == false; r++, s++)
+                {
+                    if (picArray[r, s].Image == img) anzahl++;
+                    if (anzahl == 4) gewonnen = true;
+                }
+            }
+            // nach rechts oben
+            if (gewonnen == false)
+            {
+                anzahl = 1;
+                for (r = row - 1, s = col + 1; r >= 1 && s <= 6 && gewonnen == false; r--, s++)
+                {
+                    if (picArray[r, s].Image == img) anzahl++;
+                    if (anzahl == 4) gewonnen = true;
+                }
+            }
+
             return gewonnen;
         }
 
