@@ -98,7 +98,7 @@ namespace VierGewinnt
             Boolean gewonnen = false;
             int r, s;
             int anzahl = 0;
-            for(r=6; r >= 1 && gewonnen == false;r--)
+            for(r=6; r >= 4 && gewonnen == false;r--)
             {
                
                 
