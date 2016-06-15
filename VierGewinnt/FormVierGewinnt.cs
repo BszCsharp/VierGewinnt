@@ -68,6 +68,7 @@ namespace VierGewinnt
         private void checkGame(int r,int s)
         {
             Boolean gewonnen = false;
+           
            if(checkH(r) )  // Horizontal
            {
                gewonnen = true;
@@ -93,58 +94,21 @@ namespace VierGewinnt
 
         private bool checkD(int row,int col)
         {
-            // teil 1 von links nach rechts
-           
-            Boolean gewonnen = false;
-            int r, s;
+            Image img = null;
             int anzahl = 0;
-            for(r=6; r >= 1 && gewonnen == false;r--)
+            // teil 1 von links nach rechts
+            int r = 0, s = 0;
+            if (labelGelb.Visible) img = imgg;
+            else img = imgr;
+            Boolean gewonnen = false;
+            // nach unten
+            anzahl = 0;
+            for(r = row-1,s = col -1; r <= 6 && s >= 0 && gewonnen == false; r++,s--)
             {
-               
-                
-                for (int sp = 0; sp <= 4 && gewonnen == false; sp++)
-                {
-                    int z = r;
-                    modusEnum modus = modusEnum.weiss;
-                    for (s = 0; s <= 6 && z >= 1; s++, z--)
-                    {
-                       
-                        if (picArray[z, s].Image == imgg)
-                        {
-                            switch (modus)
-                            {
-                                case modusEnum.weiss:
-                                case modusEnum.rot:
-                                    modus = modusEnum.gelb;
-                                    anzahl = 1;
-                                    break;
-                                case modusEnum.gelb:
-                                    anzahl++;
-                                    break;
-                            }
-                        }
-                        else if (picArray[z, s].Image == imgr)
-                        {
-                            switch (modus)
-                            {
-                                case modusEnum.weiss:
-                                case modusEnum.gelb:
-                                    modus = modusEnum.rot;
-                                    anzahl = 1;
-                                    break;
-                                case modusEnum.rot:
-                                    anzahl++;
-                                    break;
-                            }
-                        }
-                        if (anzahl == 4)
-                        {
-                            gewonnen = true;
-                            break;
-                        }
-                    }
-                }
+                if (picArray[r, s].Image == img) anzahl++;
+                if (anzahl == 4) gewonnen = true;
             }
+ 
             return gewonnen;
         }
 
