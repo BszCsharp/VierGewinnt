@@ -139,14 +139,15 @@
     <Content Include="bin\Debug\Images\gelb2.png" />
     <Content Include="bin\Debug\Images\rot.png" />
     <Content Include="bin\Debug\Images\weiss.png" />
+    <Content Include="Images\gelb.png" />
+    <Content Include="Images\rot.png" />
+    <Content Include="Images\weiss.png" />
     <None Include="Resources\ImWeiss.bmp" />
     <None Include="Resources\ImGelb.bmp" />
     <None Include="Resources\ImRot.bmp" />
     <None Include="Resources\Image1.bmp" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
