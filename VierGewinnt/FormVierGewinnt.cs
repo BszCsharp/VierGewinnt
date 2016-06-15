@@ -108,6 +108,19 @@ namespace VierGewinnt
                 if (picArray[r, s].Image == img) anzahl++;
                 if (anzahl == 4) gewonnen = true;
             }
+
+
+            // nach rechts oben
+            if (gewonnen == false)
+            {
+                //anzahl = 1;
+                for (r = row - 1, s = col + 1; r >= 1 && s <= 6 && gewonnen == false; r--, s++)
+                {
+                    if (picArray[r, s].Image == img) anzahl++;
+                    else anzahl = 0;
+                    if (anzahl == 4) gewonnen = true;
+                }
+            }
             // nach links oben
             if(gewonnen == false)
             {
@@ -115,6 +128,7 @@ namespace VierGewinnt
                 for (r = row - 1, s = col - 1; r >= 1 && s >= 0 && gewonnen == false; r--, s--)
                 {
                     if (picArray[r, s].Image == img) anzahl++;
+                    else anzahl = 0;
                     if (anzahl == 4) gewonnen = true;
                 } 
 
@@ -122,23 +136,15 @@ namespace VierGewinnt
             // nach rechts unten
             if (gewonnen == false)
             {
-                anzahl = 1;
+                //anzahl = 1;
                 for (r = row + 1, s = col + 1; r <= 6 && s <= 6 && gewonnen == false; r++, s++)
                 {
                     if (picArray[r, s].Image == img) anzahl++;
+                    else anzahl = 0;
                     if (anzahl == 4) gewonnen = true;
                 }
             }
-            // nach rechts oben
-            if (gewonnen == false)
-            {
-                anzahl = 1;
-                for (r = row - 1, s = col + 1; r >= 1 && s <= 6 && gewonnen == false; r--, s++)
-                {
-                    if (picArray[r, s].Image == img) anzahl++;
-                    if (anzahl == 4) gewonnen = true;
-                }
-            }
+
 
             return gewonnen;
         }
