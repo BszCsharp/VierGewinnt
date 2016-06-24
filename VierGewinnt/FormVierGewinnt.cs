@@ -285,12 +285,12 @@ namespace VierGewinnt
                 
                 checkGame(r,s);
                 
-                if (labelGelb.Visible)
+                if (labelGelb.Visible && labelRot.Visible == false)
                 {
                     labelGelb.Visible = false;
                     labelRot.Visible = true;
                 }
-                else
+                else if(labelRot.Visible == true)
                 {
                     labelGelb.Visible = true;
                     labelRot.Visible = false;
