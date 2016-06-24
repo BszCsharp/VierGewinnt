@@ -40,6 +40,7 @@
             this.labelGelb = new System.Windows.Forms.Label();
             this.labelRot = new System.Windows.Forms.Label();
             this.buttonNewGame = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -203,6 +204,15 @@
             this.buttonNewGame.UseVisualStyleBackColor = true;
             this.buttonNewGame.Click += new System.EventHandler(this.buttonNewGame_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(93, 577);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 31);
+            this.label8.TabIndex = 4;
+            // 
             // FormVierGewinnt
             // 
             this.AllowDrop = true;
@@ -211,6 +221,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(596, 692);
             this.Controls.Add(this.buttonNewGame);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.labelRot);
             this.Controls.Add(this.labelGelb);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -236,6 +247,7 @@
         private System.Windows.Forms.Label labelGelb;
         private System.Windows.Forms.Label labelRot;
         private System.Windows.Forms.Button buttonNewGame;
+        private System.Windows.Forms.Label label8;
     }
 }
 

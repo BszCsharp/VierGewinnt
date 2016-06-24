@@ -106,6 +106,7 @@ namespace VierGewinnt
             for(r = row+1,s = col -1; r <= 6 && s >= 0 && gewonnen == false; r++,s--)
             {
                 if (picArray[r, s].Image == img) anzahl++;
+                else anzahl = 0;
                 if (anzahl == 4) gewonnen = true;
             }
 
@@ -265,6 +266,7 @@ namespace VierGewinnt
 
         private void label1_DragDrop(object sender, DragEventArgs e)
         {
+            if (labelGelb.Visible == false && labelRot.Visible == false) return;
             e.Effect = DragDropEffects.All;
             int r;
             Label l = sender as Label;
@@ -280,7 +282,9 @@ namespace VierGewinnt
                 if (labelGelb.Visible) picArray[r, s].Image = imgg;
                 else picArray[r, s].Image = imgr;
                 Application.DoEvents();
+                
                 checkGame(r,s);
+                
                 if (labelGelb.Visible)
                 {
                     labelGelb.Visible = false;
